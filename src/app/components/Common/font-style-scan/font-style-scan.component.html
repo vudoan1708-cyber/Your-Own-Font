@@ -1,0 +1,34 @@
+<div id="scan_area">
+  <!-- Scan Board -->
+  <div id="scan_board">
+    <!-- Upload Files -->
+    <div id="upload_area">
+      <div id="upload_placeholder" (drop)="dropFile($event)" (dragenter)="onDragEnter($event)" (dragover)="onDragOver($event)">
+        <!-- Image Preview -->
+        <div id="imgPreviewContainer" [ngClass]="uploadProgress === 0 ? 'noImg' : 'hasImg'">
+          <img #imgPreview />
+        </div>
+        
+        <h2 [ngClass]="uploadProgress === 100 ? 'withEntrance' : ''">{{ uploadTitle }}</h2>
+
+        <!-- Close Button -->
+        <div class="close_btn" *ngIf="uploadProgress === 100" (click)="deleteImg($event)">
+          <h3>X</h3>
+        </div>
+      </div>
+
+      <div id="upload_input">
+        <label for="imgFile">Or Choose Your Image File</label><br />
+
+        <input type="file"
+              id="imgFile" name="imgFile"
+              accept="image/*"
+              (change)="handleFiles($event)">
+      </div>
+    </div>
+  </div>
+</div>
+
+<div *ngIf="imgUploading" id="imgDownloadProgress">
+  <progress id="file" [value]="uploadProgress" max="100"> {{ uploadProgress }} </progress>
+</div>

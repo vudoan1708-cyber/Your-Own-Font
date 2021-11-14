@@ -1,1 +1,22 @@
 /* You can add global styles to this file, and also import other style files */
+@import './sass/GlobalVariables/variables';
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+body {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  background-color: $bg_primary;
+}
