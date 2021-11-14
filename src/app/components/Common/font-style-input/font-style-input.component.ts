@@ -1,11 +1,12 @@
-import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
-  selector: 'app-font-style-scan',
-  templateUrl: './font-style-scan.component.html',
-  styleUrls: ['./font-style-scan.component.scss']
+  selector: 'app-font-style-input',
+  templateUrl: './font-style-input.component.html',
+  styleUrls: ['./font-style-input.component.scss']
 })
-export class FontStyleScanComponent implements OnInit {
+export class FontStyleInputComponent implements OnInit {
   // DOM Ref
   @ViewChild('imgPreview') imgPreview: any = null;
 
@@ -20,7 +21,7 @@ export class FontStyleScanComponent implements OnInit {
   // Class Binding
   isEnabled: boolean = false;
 
-  constructor() { }
+  constructor(private router: Router) { }
 
   ngOnInit(): void {
     console.log('VIEW IS INITIALISED');
@@ -94,5 +95,9 @@ export class FontStyleScanComponent implements OnInit {
     this.uploadProgress = 0;
     // Reset the title
     this.uploadTitle = 'Drag Your Image File Here';
+  };
+
+  next(): void {
+    this.router.navigate(['/scanner', this.imgPreview.nativeElement.src]);
   };
 }

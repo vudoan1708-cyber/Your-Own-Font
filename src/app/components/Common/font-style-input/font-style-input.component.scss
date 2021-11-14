@@ -32,10 +32,10 @@
 
       #upload_placeholder {
         position: relative;
-        margin: 10px;
+        margin: calc(#{$margin} + (#{$grid_unit} / 2));
         width: 65%;
         height: 80%;
-        border: 8px dashed rgba(255, 255, 255, 0.842);
+        border: $border_radius dashed rgba(255, 255, 255, 0.842);
         overflow: hidden;
 
         h2 {
@@ -47,7 +47,7 @@
           transition: opacity .2s;
         }
         h2.withEntrance {
-          padding: 8px;
+          padding: $padding;
           background-color: $bg_secondary;
           opacity: 0;
         }
@@ -55,8 +55,8 @@
         #imgPreviewContainer {
           @include positionProperties(absolute, 50%, '', 50%, '');
           transform: translate(-50%, -50%);
-          // width: 100%;
-          height: 100%;
+          width: fit-content;
+          height: fit-content;
         
           img {
             position: relative;
@@ -70,15 +70,16 @@
 
         .close_btn {
           @include positionProperties(absolute, '', 0, -50%, '');
-          margin: 8px;
-          padding: 8px 12px;
+          margin: $margin;
+          padding: $padding calc(#{$padding} + #{$grid_unit});
           background-color: $bg_primary;
-          border-radius: 8px;
+          border-radius: $border_radius;
           cursor: pointer;
-          transition: color .2s, top .2s;
+          transition: color .2s, background-color .2s, top .2s;
 
           &:hover {
             color: white;
+            background-color: $bg_secondary;
           }
         }
 
@@ -93,13 +94,13 @@
       }
 
       #upload_input {
-        margin-top: 8px;
+        margin-top: $margin;
 
         input[type=file] {
           background-color: rgb(194, 194, 194);
           outline: none;
-          border-radius: 5px;
-          padding: 5px;
+          border-radius: calc(#{$border_radius} - #{$grid_unit});
+          padding: $padding;
           cursor: pointer;
         }
       }

@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { FontStyleScanComponent } from './font-style-scan.component';
+import { FontStyleScannerComponent } from './font-style-scanner.component';
 
-describe('FontStyleScanComponent', () => {
-  let component: FontStyleScanComponent;
-  let fixture: ComponentFixture<FontStyleScanComponent>;
+describe('FontStyleScannerComponent', () => {
+  let component: FontStyleScannerComponent;
+  let fixture: ComponentFixture<FontStyleScannerComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ FontStyleScanComponent ]
+      declarations: [ FontStyleScannerComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(FontStyleScanComponent);
+    fixture = TestBed.createComponent(FontStyleScannerComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

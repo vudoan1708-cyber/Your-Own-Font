@@ -32,3 +32,11 @@
 <div *ngIf="imgUploading" id="imgDownloadProgress">
   <progress id="file" [value]="uploadProgress" max="100"> {{ uploadProgress }} </progress>
 </div>
+
+<app-button
+  style="position: absolute; bottom: 0; right: 0;"
+  (onclick)="next()"
+  *ngIf="uploadProgress === 100">
+    <h3>>></h3>
+    <h3>Next</h3>
+</app-button>
